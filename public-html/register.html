@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/fav-icon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
+    <title>Register | Covision</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-toggleable-sm bg-primary navbar-inverse">
+
+            <a class="navbar-brand" href="home.html"><img class="logo-responsive" src="./img/logo.png"></a>
+
+            <div class="container">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <div class="navbar-nav">
+                        <li><a class="nav-item nav-link active text-center" href="/home.html">Home</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/medicalfacilities.html">Medical
+                                Facilities</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/testingfacilities.html">Testing Sites</a>
+                        </li>
+                        <li><a class="nav-item nav-link text-center" href="/requestppe.html">Request PPE</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/donateppe.html">Donate PPE</a></li>
+
+                        <li><a class="nav-item nav-link text-center" href="/postfacility.html" id="providerAddFacility"
+                                style="display:none;">Post Facility</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/managedonations.html"
+                                id="providerManageDonations" style="display:none;">Manage Donations</a></li>
+
+                    </div>
+                </div>
+            </div>
+            <a id="navLogin" class="btn btn-success btn-md m-1" href="/login.html" role="button">Log In</a>
+            <a id="navRegister" class="btn btn-danger btn-md m-1" href="/register.html" role="button">Register</a>
+            <a id="navLogout" class="btn btn-outline-info btn-md m-1" role="button"
+                style="display:none;background-color:rgb(147, 209, 233)">Log Out</a>
+            <a id="navUser" class="btn btn-outline-info btn-md m-1" href="/manageaccount.html" role="button"
+                style="display:none; background-color:rgb(159, 190, 231); color:black;"></a>
+        </nav>
+    </header>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 text-center my-4">Register</h1>
+            </div>
+        </div>
+
+        <p id="emailTaken"
+            style="display:none;font-weight:bold;color:rgb(0, 0, 0);background-color:rgb(207, 80, 80); border:2px solid black;padding:1em;margin:1em;text-align:center; font-size:1.5em;">
+
+            Sorry, that email is already in use.
+        </p>
+    </div>
+
+    <div class="container-fluid">
+
+
+
+        <div class="row justify-content-center">
+            <ul class="nav nav-pills" id="tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="customer-tab" data-toggle="tab" href="#customer" role="tab"
+                        aria-controls="customer" aria-selected="true">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="provider-tab" data-toggle="tab" href="#provider" role="tab"
+                        aria-controls="provider" aria-selected="false">Provider</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="customer" role="tabpanel" aria-labelledby="customer-tab">
+                <div class="row justify-content-center">
+                    <form class="form-container" id="customerRegister" method="POST">
+                        <legend>Create a customer account!</legend>
+                        <div class="form-group">
+                            <label for="customerFirst" style="font-weight:bold">First Name</label>
+                            <input class="form-control" type="text" id="customerFirst" name="customerFirst"
+                                placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerLast" style="font-weight:bold">Last Name</label>
+                            <input class="form-control" type="text" id="customerLast" name="customerLast"
+                                placeholder="Enter last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerEmail" style="font-weight:bold">Email</label>
+                            <input class="form-control" type="email" id="customerEmail" name="customerEmail"
+                                placeholder="Enter email address">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPassword1" style="font-weight:bold">Password</label>
+                            <input class="form-control" type="password" id="customerPassword1" name="customerPassword1"
+                                placeholder="Enter password">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPassword2" style="font-weight:bold">Confirm Password</label>
+                            <input class="form-control" type="password" id="customerPassword2" name="customerPassword2"
+                                placeholder="Re-enter Password">
+
+                        </div>
+                        <div class="form-group">
+
+                            <button class="btn btn-primary btn-block" id="customerSubmit"
+                                type="submit">Register</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="provider" role="tabpanel" aria-labelledby="provider-tab">
+                <div class="row justify-content-center">
+                    <form class="form-container " id="providerRegister" method="POST">
+                        <legend>Create a provider account!</legend>
+                        <div class="form-group">
+                            <label for="providerEmail" style="font-weight:bold">Email</label>
+                            <input class="form-control" type="email" id="providerEmail" name="providerEmail"
+                                placeholder="Enter email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="providerName" style="font-weight:bold">Name</label>
+                            <input class="form-control" type="text" id="providerName" name="providerName"
+                                placeholder="Enter name" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="providerPassword1" style="font-weight:bold">Password</label>
+                            <input class="form-control" type="password" id="providerPassword1" name="providerPassword1"
+                                placeholder="Enter password" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="providerPassword2" style="font-weight:bold">Confirm Password</label>
+                            <input class="form-control" type="password" id="providerPassword2" name="providerPassword2"
+                                placeholder="Re-enter password" required>
+
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" id="providerSubmit"
+                                type="submit">Register</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/home.html"><img src="./img/logo.png" alt=""></a>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="footer-nav">
+                        <a href="/medicalfacilities.html">
+                            <li>Medical Facilities</li>
+                        </a>
+                        <a href="/testingfacilities.html">
+                            <li>Testing Sites</li>
+                        </a>
+                        <a href="/requestppe.html">
+                            <li>Request PPE</li>
+                        </a>
+                        <a href="/donateppe.html">
+                            <li>Donate PPE</li>
+                        </a>
+                        <a href="/postfacility.html">
+                            <li>Post Facility</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="footer-nav">
+                        <a href="/faq.html">
+                            <li>FAQ</li>
+                        </a>
+                        <a href="#">
+                            <li>Contact Us</li>
+                        </a>
+                        <a href="/privacypolicy.html">
+                            <li>Privacy Policy</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 203-321-4321</li>
+                        <li><i class="fas fa-envelope-square"></i> covision@covision.com</li>
+                    </ul>
+                    <ul class="social-media">
+                        <li>
+                            <a class="sm-circle" href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sm-circle" href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sm-circle" href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+
+        <!--Validation Script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+        <script src="../js/register.js"></script>
+        <script src="../js/generic.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="shortcut icon" type="image/x-icon" href="./img/fav-icon.ico" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
+    <title>Manage Donations | Covision</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-toggleable-sm bg-primary navbar-inverse">
+
+            <a class="navbar-brand" href="home.html"><img class="logo-responsive" src="./img/logo.png"></a>
+
+            <div class="container">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <div class="navbar-nav">
+                        <li><a class="nav-item nav-link active text-center" href="/home.html">Home</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/medicalfacilities.html">Medical
+                                Facilities</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/testingfacilities.html">Testing Sites</a>
+                        </li>
+                        <li><a class="nav-item nav-link text-center" href="/requestppe.html">Request PPE</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/donateppe.html">Donate PPE</a></li>
+
+                        <li><a class="nav-item nav-link text-center" href="/postfacility.html" id="providerAddFacility"
+                                style="display:none;">Post Facility</a></li>
+                        <li><a class="nav-item nav-link text-center" href="/managedonations.html"
+                                id="providerManageDonations" style="display:none;">Manage Donations</a></li>
+
+                    </div>
+                </div>
+            </div>
+            <a id="navLogin" class="btn btn-success btn-md m-1" href="/login.html" role="button">Log In</a>
+            <a id="navRegister" class="btn btn-danger btn-md m-1" href="/register.html" role="button">Register</a>
+            <a id="navLogout" class="btn btn-outline-info btn-md m-1" role="button"
+                style="display:none;background-color:rgb(147, 209, 233)">Log Out</a>
+            <a id="navUser" class="btn btn-outline-info btn-md m-1" href="/manageaccount.html" role="button"
+                style="display:none; background-color:rgb(159, 190, 231); color:black;"></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 text-center mt-4 mb-0">Manage Donations</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="lead text-center">
+                    Click '<i class="fas fa-check"></i>' when donation is ready for pickup<br>
+                    Click '<i class="fas fa-times"></i>' to reject <br>
+                    Acknowledge pickup or otherwise to return inventory
+                </div>
+            </div>
+            <div class="col">
+                <div class="lead text-center">
+                    These are notifications of people donating to your facility<br>
+                    Click 'Acknowledge' to clear the notification
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-6 px-1">
+                <div class="form-container p-0" style="height:700px; overflow-y: scroll;">
+                    <p class="display-4 text-center sticky-top w-100 py-4"
+                        style="background:radial-gradient(rgba(151, 217, 219, 0.5), rgba(127, 196, 218, 0.5));">
+
+                        Donation Requests
+
+                    </p>
+                    <ul class="list-group" id="providerRequestListings">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col col-lg-6 px-2">
+                <div class="form-container p-0" style="height:700px; overflow-y: scroll;">
+                    <p class="display-4 text-center sticky-top w-100 py-4"
+                        style="background:radial-gradient(rgba(151, 217, 219, 0.5), rgba(127, 196, 218, 0.5));">
+                        Donations to You
+                    </p>
+                    <ul class="list-group" id="donationNotificationListings">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col px-2">
+                <div class="form-container p-0" style="height:700px; overflow-y: scroll;">
+                    <p class="display-4 text-center sticky-top w-100 py-4"
+                        style="background:radial-gradient(rgba(151, 217, 219, 0.5), rgba(127, 196, 218, 0.5));">
+                        Your Posted Donations
+                    </p>
+                    <ul class="list-group" id="providerDonationListings">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+        <p id="postDonationSuccess" style="border:1px solid black; display:none;background:green;">Donation Successfully
+            Posted</p>
+        <p id="postDonationFailed" style="border:1px solid black; display:none;background:red;">Donation Failed To Post
+        </p>
+        <p id="nameTaken" style="border:1px solid black; display:none;background:red;">Name Taken</p>
+        <div class="row justify-content-center">
+        </div>
+        <form class="form-container" id="postFacility" method="POST">
+            <p class="display-4 text-center">
+                Post a Donation
+            </p>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group my-0">
+                        <label for="facilityChoice" style="font-weight:bold">Facility</label>
+                        <select id="facilityChoice" name="facilityChoice" class="form-control">
+                            <option selected value="">Choose Facility</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group my-0">
+                        <label for="donationName" style="font-weight:bold">Name</label>
+                        <input id="donationName" name="donationName" class="form-control" type="text"
+                            placeholder="Donation name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group my-0">
+                        <label for="donationQuantity" style="font-weight:bold">Quantity</label>
+                        <input id="donationQuantity" name="donationQuantity" class="form-control" type="number"
+                            placeholder="Quantity"></input>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group my-0">
+                        <label for="donationDescription" style="font-weight:bold;">Description</label>
+                        <textarea class="form-control" id="donationDescription" rows="3"
+                            placeholder="Description of donation"></textarea>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group my-0">
+                            <label for="donationImage" style="font-weight:bold">Image (.jpg only)</label>
+                            <input class="form-control-file" id="donationImage" name="donationImage"
+                                class="form-control" type="file" accept=".jpg, .jpeg">
+                            <div class="h-auto w-100" id="previewImage">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary btn-block" id="donationSubmit" type="button">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/home.html"><img src="./img/logo.png" alt=""></a>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="footer-nav">
+                        <a href="/medicalfacilities.html">
+                            <li>Medical Facilities</li>
+                        </a>
+                        <a href="/testingfacilities.html">
+                            <li>Testing Sites</li>
+                        </a>
+                        <a href="/requestppe.html">
+                            <li>Request PPE</li>
+                        </a>
+                        <a href="/donateppe.html">
+                            <li>Donate PPE</li>
+                        </a>
+                        <a href="/postfacility.html">
+                            <li>Post Facility</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="footer-nav">
+                        <a href="/faq.html">
+                            <li>FAQ</li>
+                        </a>
+                        <a href="#">
+                            <li>Contact Us</li>
+                        </a>
+                        <a href="/privacypolicy.html">
+                            <li>Privacy Policy</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 203-321-4321</li>
+                        <li><i class="fas fa-envelope-square"></i> covision@covision.com</li>
+                    </ul>
+                    <ul class="social-media">
+                        <li>
+                            <a class="sm-circle" href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sm-circle" href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sm-circle" href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+
+        <!--Validation Script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+        <script src="../js/manageDonations.js"></script>
+        <script src="../js/generic.js"></script>
+
+</body>
+
+</html>

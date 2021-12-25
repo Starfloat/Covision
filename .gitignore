@@ -1,0 +1,7 @@
+.vscode
+.dist
+package-lock.json
+node_modules
+*.sql
+public-html/donationImages/*
+
