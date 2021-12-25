@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" style="color:blue;"  >
   <a href="https://example.com/">
     <img src="./public-html/img/logo-lg.png" alt="Logo">
   </a>
@@ -14,6 +14,8 @@
 - [Structure Diagram](#structure-diagram)
 - [Sequence Diagram](#sequence-diagram)
 - [Entity Relationship Diagram](#er-diagram)
+- [Non-functional Specifications](#nfs)
+- [Sprints](#sprints)
 
 ## Background and Project Conception
 
@@ -143,6 +145,66 @@ HTML - Markup language for DOM
 Google Cloud - Provides Ubuntu VM for http server and MySQL database instance
 
 Certbot and Let’s Encrypt - Certificate authority to enable https
+
+## Sprints
+
+### Sprint 1
+
+#### Week 1:
+
+- Format initial file structure, initialize git and create GitHub repo
+- Write http server, file server, and routes
+- Create HTML documents for landing page, registration & logging in
+- Style general page grid layout with CSS framework
+
+#### Week 2:
+
+- Load database with tables for user and provider accounts
+- Create forms for user and provider registration and login
+- Create logic for password security and forgotten password link
+- Load database with table for facilities
+- Create forms for providers to list facilities
+
+### Sprint 2
+
+- Create database tables for donations and donation requests.
+  Weight: 2
+- Create account management page for provider to update facility info
+  Weight: 2
+- Create html page for Customers to make donations
+  Weight: 2
+- Create html page for Provider to manage donation listings
+  Weight: 4
+- Create html page for Customers to view and manage donations and request
+  Weight: 3
+- Create server logic and database access to handle Provider posting donation
+  Weight: 3
+- Create server logic for notifying Provider and Customer of donation drop-off
+  Weight: 5
+- Create server logic and database access to handle Customer requesting donation
+  Weight: 4
+- Create server logic and database access for Provider to manage Customer requests when managing donations
+  Weight: 3
+- Create server logic and database access for Provider to update and delete posted donations
+  Weight: 2
+- Create server logic and database access for Provider to notify Customer that donation request is ready for pickup
+  Weight: 5
+- Create server logic and database access for Provider to update facility info
+  Weight: 2
+- Paginate facilities page, donation page, and request PPE page
+  Weight: 1
+
+### Sprint 3
+
+- Create search for facilities and donations [4].
+- Paginate facility and donation pages [4].
+- Allow image uploads for facilities and donations [4].
+- Include information on how to use the website such as how the manage donations page works and how to request/donate PPE [2].
+- Complete account management page [3].
+- Modularize back-end by logical divisions or divided by feature including database requests split into provider/user modules and features into - facilities, donations, password reset, login/register [4].
+- Setup server with HTTPS [5].
+- Finish form validation on all pages [4].
+- Create privacy policy page [3].
 
 ## Original Repo Screenshot
 
