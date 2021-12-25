@@ -1,4 +1,4 @@
-<p align="center" style="color:blue;"  >
+<p align="center"  >
   <a href="https://example.com/">
     <img src="./public-html/img/logo-lg.png" alt="Logo">
   </a>
